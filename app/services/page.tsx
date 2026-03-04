@@ -9,7 +9,7 @@ import {
   Droplets,
   ThermometerSun,
   Hammer,
-  Broom,
+  Sparkles,
   ShieldCheck,
   Sprout,
   Flame
@@ -20,7 +20,7 @@ const SERVICE_ICONS: Record<Service["id"], LucideIcon> = {
   plumbing: Droplets,
   hvac: ThermometerSun,
   civil: Hammer,
-  cleaning: Broom,
+  cleaning: Sparkles,
   security: ShieldCheck,
   landscaping: Sprout,
   firefighting: Flame
