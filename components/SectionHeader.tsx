@@ -24,7 +24,7 @@ export default function SectionHeader({
         {eyebrow && (
           <span className="badge-soft">{eyebrow}</span>
         )}
-        <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl">
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
           {title}
         </h2>
         {description && (

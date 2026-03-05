@@ -5,19 +5,18 @@ import Footer from "@/components/Footer";
 import MotionWrapper from "@/components/MotionWrapper";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://el-masrya.example.com"),
+  metadataBase: new URL("https://ece-eg.com"),
   title: {
-    default: "El Masrya | Facility Management & Maintenance",
-    template: "%s | El Masrya"
+    default: "ECE | Egyptian Company for Commerce & Engineering",
+    template: "%s | ECE"
   },
   description:
-    "El Masrya is a leading Egyptian facility management and maintenance contracting company, operating clubs, compounds, and commercial facilities with excellence in every detail.",
+    "ECE – Egyptian Company for Commerce & Engineering. Engineering trust since day one. Telephone networks, CCTV, fire alarm, audio systems, facility maintenance, and more across Egypt.",
   openGraph: {
-    title: "El Masrya | Facility Management & Maintenance",
-    description:
-      "Comprehensive operation and maintenance services for clubs, compounds, and commercial facilities across Egypt.",
+    title: "ECE | Egyptian Company for Commerce & Engineering",
+    description: "Engineering Trust Since Day One. Serving government and private sectors nationwide.",
     type: "website",
-    url: "https://el-masrya.example.com"
+    url: "https://ece-eg.com"
   }
 };
 
@@ -28,6 +27,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="page-shell">
         <Navbar />
         <MotionWrapper>
@@ -38,4 +45,3 @@ export default function RootLayout({
     </html>
   );
 }
-

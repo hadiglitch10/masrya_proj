@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks, CONTACT_INFO } from "@/lib/constants";
 
 export default function Footer() {
@@ -7,23 +8,28 @@ export default function Footer() {
       <div className="page-section pb-8 pt-10">
         <div className="section-inner grid gap-10 md:grid-cols-[1.4fr,1fr,1fr]">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-primary font-heading text-lg font-semibold">
-                EM
+            <div className="flex items-center gap-3">
+              <div className="relative h-11 w-11 flex-shrink-0">
+                <Image
+                  src="/img/logo.png"
+                  alt="ECE Logo"
+                  fill
+                  className="object-contain"
+                  sizes="44px"
+                />
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="font-heading text-lg font-semibold tracking-wide">
-                  El Masrya
+                  ECE
                 </span>
                 <span className="text-xs text-white/60">
-                  Facility Management
+                  المصريه للتجاره والهندسه
                 </span>
               </div>
             </div>
             <p className="max-w-md text-sm text-white/70">
-              El Masrya is a leading Egyptian facility management company
-              specializing in the comprehensive operation and maintenance of
-              clubs, compounds, and commercial facilities.
+              Egyptian Company for Commerce & Engineering — Engineering trust
+              since day one. Serving government and private sectors across Egypt.
             </p>
           </div>
 
@@ -48,13 +54,16 @@ export default function Footer() {
             </h3>
             <div className="space-y-1.5 text-sm text-white/70">
               <p>
-                Hotline:{" "}
-                <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-white">
+                <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`} className="hover:text-white">
                   {CONTACT_INFO.phone}
                 </a>
               </p>
               <p>
-                Email:{" "}
+                <a href={`tel:${CONTACT_INFO.mobile}`} className="hover:text-white">
+                  {CONTACT_INFO.mobile}
+                </a>
+              </p>
+              <p>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
                   className="hover:text-white"
@@ -69,13 +78,11 @@ export default function Footer() {
 
         <div className="section-inner mt-8 border-t border-white/10 pt-4 text-xs text-white/50 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} El Masrya Facility Management. All
-            rights reserved.
+            © {new Date().getFullYear()} ECE – Egyptian Company for Commerce &
+            Engineering. All rights reserved.
           </p>
-          <p>Designed for a premium, modern corporate presence.</p>
         </div>
       </div>
     </footer>
   );
 }
-

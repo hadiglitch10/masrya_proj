@@ -2,112 +2,73 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
-import { SERVICES, type Service } from "@/lib/services";
+import { SERVICES } from "@/lib/services";
 import type { LucideIcon } from "lucide-react";
 import {
-  Bolt,
+  Phone,
+  Video,
+  Flame,
+  Volume2,
+  Wrench,
   Droplets,
-  ThermometerSun,
-  Hammer,
-  Sparkles,
-  ShieldCheck,
-  Sprout,
-  Flame
+  Shield,
+  Monitor
 } from "lucide-react";
 
-const SERVICE_ICONS: Record<Service["id"], LucideIcon> = {
-  electrical: Bolt,
-  plumbing: Droplets,
-  hvac: ThermometerSun,
-  civil: Hammer,
-  cleaning: Sparkles,
-  security: ShieldCheck,
-  landscaping: Sprout,
-  firefighting: Flame
+const SERVICE_ICONS: Record<string, LucideIcon> = {
+  phone: Phone,
+  video: Video,
+  flame: Flame,
+  volume: Volume2,
+  wrench: Wrench,
+  droplets: Droplets,
+  shield: Shield,
+  monitor: Monitor
 };
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore El Masrya's integrated facility management services including electrical, plumbing, HVAC, civil works, cleaning, security systems, landscaping, and more."
+    "ECE services: Telephone networks & PBX, CCTV, fire alarm, audio systems, facility maintenance, pool maintenance, access control, IT networks."
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <Section patterned className="pt-28 pb-14">
+      <Section patterned className="pt-24 sm:pt-28 pb-10 sm:pb-14">
         <SectionHeader
           eyebrow="Our Services"
-          title="Integrated Facility Management Portfolio"
-          description="A single partner to manage every technical and soft service inside your development—planned, executed, and monitored by specialists."
+          title="Engineering Solutions Across Egypt"
+          description="From telephone networks and surveillance to fire alarm, audio, facility maintenance, and IT — ECE delivers trusted solutions for government and private sectors."
           align="center"
         />
       </Section>
 
       <Section>
-        <Reveal>
-          <div className="grid grid-auto-fit gap-6">
-            {SERVICES.map((service, index) => {
-              const Icon = SERVICE_ICONS[service.id];
-              return (
-                <Reveal key={service.id} delay={0.05 + index * 0.04}>
-                  <div className="card-surface flex h-full flex-col gap-4 p-6 hover:border-accent/70 hover:shadow-[0_18px_60px_rgba(0,0,0,0.6)] transition">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                        {Icon && <Icon className="h-6 w-6" />}
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.2em] text-white/50">
-                          {service.category === "hard"
-                            ? "Hard Services"
-                            : service.category === "soft"
-                              ? "Soft Services"
-                              : "Specialist Systems"}
-                        </p>
-                        <h3 className="font-heading text-lg">{service.name}</h3>
-                      </div>
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {SERVICES.map((service, index) => {
+            const Icon = SERVICE_ICONS[service.iconKey];
+            return (
+              <Reveal key={service.id} delay={0.03 + index * 0.03}>
+                <div className="card-surface flex h-full flex-col gap-4 p-4 sm:p-6 hover:border-accent/60 transition">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                      {Icon && <Icon className="h-6 w-6" />}
                     </div>
-                    <p className="text-sm text-white/75">
-                      {service.description}
-                    </p>
+                    <div>
+                      <h3 className="font-heading text-lg">{service.name}</h3>
+                      <p className="text-xs text-white/60" dir="rtl">
+                        {service.nameAr}
+                      </p>
+                    </div>
                   </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Reveal>
-      </Section>
-
-      <Section patterned>
-        <Reveal>
-          <div className="grid gap-8 md:grid-cols-4">
-            {["Assessment", "Mobilization", "Steady Operations", "Reporting"].map(
-              (step, index) => (
-                <div
-                  key={step}
-                  className="card-surface flex flex-col gap-2 p-5 text-sm text-white/80"
-                >
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">
-                    Step {index + 1}
-                  </span>
-                  <h3 className="font-heading text-base">{step}</h3>
-                  <p className="text-xs sm:text-sm text-white/70">
-                    {index === 0 &&
-                      "Technical and commercial review of assets, documents, and current operation model."}
-                    {index === 1 &&
-                      "Deployment of teams, tools, and systems with clear procedures and SLAs."}
-                    {index === 2 &&
-                      "Day-to-day operations under preventive maintenance plans and checklists."}
-                    {index === 3 &&
-                      "Transparent reporting, dashboards, and regular review meetings with stakeholders."}
-                  </p>
+                  <p className="text-sm text-white/75">{service.description}</p>
                 </div>
-              )
-            )}
-          </div>
-        </Reveal>
+              </Reveal>
+            );
+          })}
+        </div>
       </Section>
     </>
   );
 }
-

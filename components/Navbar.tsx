@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/constants";
 
@@ -19,6 +21,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (open) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div
@@ -26,21 +36,28 @@ export default function Navbar() {
           scrolled ? "nav-blur bg-primary-muted/95 shadow-lg shadow-black/40" : "bg-transparent"
         }`}
       >
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-primary font-heading text-base sm:text-lg font-semibold">
-            EM
+        <Link href="/" className="flex items-center gap-3">
+          <div className="relative h-10 w-10 sm:h-11 sm:w-11 flex-shrink-0">
+            <Image
+              src="/img/logo.png"
+              alt="ECE Logo"
+              fill
+              className="object-contain"
+              sizes="44px"
+              priority
+            />
           </div>
-          <div className="ml-1 flex flex-col leading-tight">
+          <div className="flex flex-col leading-tight">
             <span className="font-heading text-base sm:text-lg font-semibold tracking-wide">
-              El Masrya
+              ECE
             </span>
-            <span className="text-xs text-white/60">
-              Facility Management
+            <span className="text-xs text-white/60 hidden sm:block">
+              Egyptian Company for Commerce & Engineering
             </span>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
+        <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-white/80 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -57,38 +74,46 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full border border-white/15 bg-primary-soft/80 p-2 text-white md:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-white/15 bg-primary-soft/80 p-2.5 text-white md:hidden min-w-[44px] min-h-[44px]"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle navigation menu"
+          aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-primary-soft/95 nav-blur border-b border-white/10">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 pb-4 pt-2 sm:px-6 lg:px-10">
-            {navLinks.map((link) => (
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="md:hidden overflow-hidden bg-primary-soft/95 nav-blur border-b border-white/10"
+          >
+            <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 pb-4 pt-2 sm:px-6 lg:px-10">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="py-3 text-sm text-white/85 hover:text-white min-h-[44px] flex items-center"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
-                key={link.href}
-                href={link.href}
-                className="py-1.5 text-sm text-white/85"
+                href="/contact"
+                className="mt-2 btn-primary w-full justify-center min-h-[44px] py-3"
                 onClick={() => setOpen(false)}
               >
-                {link.label}
+                Contact Us
               </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="mt-2 btn-primary w-full justify-center"
-              onClick={() => setOpen(false)}
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      )}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
-

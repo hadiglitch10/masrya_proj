@@ -1,75 +1,66 @@
 export type Service = {
   id: string;
   name: string;
+  nameAr: string;
   description: string;
   iconKey: string;
-  category: "hard" | "soft" | "special";
 };
 
-export const SERVICES: Service[] = [
+export const SERVICES = [
   {
-    id: "electrical",
-    name: "Electrical Maintenance",
-    description:
-      "Preventive and corrective electrical maintenance for low-voltage networks, panels, lighting, and backup systems across compounds and clubs.",
-    iconKey: "bolt",
-    category: "hard"
+    id: "telephone",
+    name: "Telephone Networks & PBX Systems",
+    nameAr: "أعمال السنترال والشبكات",
+    description: "Design, installation, and maintenance of telephone networks and PBX systems for enterprises.",
+    iconKey: "phone"
   },
   {
-    id: "plumbing",
-    name: "Plumbing & Drainage",
-    description:
-      "Operation and maintenance of domestic water, firefighting networks, pumps, and drainage systems to keep facilities running 24/7.",
-    iconKey: "droplets",
-    category: "hard"
+    id: "cctv",
+    name: "CCTV & Surveillance Systems",
+    nameAr: "كاميرات المراقبة التليفزيونية",
+    description: "Professional CCTV installation and monitoring solutions for security and surveillance.",
+    iconKey: "video"
   },
   {
-    id: "hvac",
-    name: "HVAC Systems",
-    description:
-      "Comprehensive HVAC services for chillers, package units, VRF systems, and ventilation to ensure comfortable, efficient environments.",
-    iconKey: "thermometerSun",
-    category: "hard"
+    id: "fire-alarm",
+    name: "Fire Alarm & Detection Systems",
+    nameAr: "أنظمة إنذار الحريق",
+    description: "Fire detection, alarm, and suppression systems meeting safety regulations.",
+    iconKey: "flame"
   },
   {
-    id: "civil",
-    name: "Civil & General Works",
-    description:
-      "Civil maintenance, finishes, and minor construction works to keep façades, roads, and common areas in pristine condition.",
-    iconKey: "hammer",
-    category: "hard"
+    id: "audio",
+    name: "Public Address & Audio Systems",
+    nameAr: "أعمال الصوتيات",
+    description: "PA systems, sound reinforcement, and audio solutions for facilities.",
+    iconKey: "volume"
   },
   {
-    id: "cleaning",
-    name: "Cleaning & Housekeeping",
-    description:
-      "Soft services teams delivering daily cleaning, façade washing, and specialized deep cleaning for clubs, compounds, and commercial towers.",
-    iconKey: "broom",
-    category: "soft"
+    id: "facility",
+    name: "Integrated Facility Maintenance",
+    nameAr: "الصيانة المتكاملة",
+    description: "Comprehensive maintenance services for buildings and infrastructure.",
+    iconKey: "wrench"
   },
   {
-    id: "security",
-    name: "Security Systems",
-    description:
-      "CCTV, access control, and integrated security systems monitoring to safeguard residents, visitors, and assets.",
-    iconKey: "shieldCheck",
-    category: "special"
+    id: "pool",
+    name: "Swimming Pool Maintenance",
+    nameAr: "صيانة حمامات السباحة",
+    description: "Pool maintenance, filtration, and water treatment for commercial and residential pools.",
+    iconKey: "droplets"
   },
   {
-    id: "landscaping",
-    name: "Landscaping & Irrigation",
-    description:
-      "Hard and soft landscaping, turf care, and irrigation system maintenance for vibrant, sustainable outdoor spaces.",
-    iconKey: "sprout",
-    category: "soft"
+    id: "access",
+    name: "Security Gates & Access Control",
+    nameAr: "بوابات أمنية وتحكم بالدخول",
+    description: "Access control systems, security gates, and integrated entry management.",
+    iconKey: "shield"
   },
   {
-    id: "firefighting",
-    name: "Firefighting Systems",
-    description:
-      "Inspection, testing, and maintenance of firefighting systems, pumps, and life-safety equipment in line with local regulations.",
-    iconKey: "flame",
-    category: "special"
+    id: "it",
+    name: "IT Networks & Computer Systems",
+    nameAr: "شبكات الحاسب والكمبيوتر",
+    description: "IT infrastructure, networking, and computer systems for enterprises.",
+    iconKey: "monitor"
   }
 ];
-

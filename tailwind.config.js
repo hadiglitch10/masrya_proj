@@ -8,13 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#0A1628",
-        accent: "#C9A84C",
-        "primary-soft": "#111d33",
-        "primary-muted": "#101623"
+        primary: "#0D1B2A",
+        secondary: "#1A2B3C",
+        accent: "#C8A951",
+        "primary-soft": "#1A2B3C",
+        "primary-muted": "#162535"
       },
       fontFamily: {
-        heading: ["Playfair Display", "serif"],
+        heading: ["Cormorant Garamond", "serif"],
         body: ["DM Sans", "system-ui", "sans-serif"]
       },
       boxShadow: {
@@ -24,4 +25,3 @@ module.exports = {
   },
   plugins: []
 };
-
