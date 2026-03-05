@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PageTransition from "@/components/PageTransition";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import { STATS, CLIENT_CATEGORIES } from "@/lib/constants";
@@ -38,7 +39,7 @@ export default function HomePage() {
   const highlightServices = SERVICES.slice(0, 4);
 
   return (
-    <>
+    <PageTransition>
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -178,6 +179,6 @@ export default function HomePage() {
           </div>
         </Reveal>
       </Section>
-    </>
+    </PageTransition>
   );
 }

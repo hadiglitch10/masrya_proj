@@ -3,11 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/constants";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -58,16 +60,31 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:gap-8 text-sm font-medium text-white/80 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="link-underline hover:text-white"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/contact" className="btn-primary text-xs">
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`link-underline hover:text-white ${
+                  isActive ? "text-accent [&::after]:w-full" : ""
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <Link
+            href="/contact"
+            className={`btn-primary text-xs ${
+              pathname === "/contact"
+                ? "ring-2 ring-white/50 ring-offset-2 ring-offset-primary"
+                : ""
+            }`}
+          >
             Contact Us
           </Link>
         </nav>
@@ -93,19 +110,31 @@ export default function Navbar() {
             className="md:hidden overflow-hidden bg-primary-soft/95 nav-blur border-b border-white/10"
           >
             <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 pb-4 pt-2 sm:px-6 lg:px-10">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="py-3 text-sm text-white/85 hover:text-white min-h-[44px] flex items-center"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`py-3 text-sm min-h-[44px] flex items-center ${
+                      isActive ? "text-accent" : "text-white/85 hover:text-white"
+                    }`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/contact"
-                className="mt-2 btn-primary w-full justify-center min-h-[44px] py-3"
+                className={`mt-2 w-full justify-center min-h-[44px] py-3 flex items-center rounded-full font-semibold text-sm ${
+                  pathname === "/contact"
+                    ? "ring-2 ring-white/50 bg-accent/90 text-primary"
+                    : "btn-primary"
+                }`}
                 onClick={() => setOpen(false)}
               >
                 Contact Us

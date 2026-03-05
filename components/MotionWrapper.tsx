@@ -1,28 +1,16 @@
- "use client";
+"use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import Footer from "./Footer";
 
 export default function MotionWrapper({
   children
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
-        className="flex flex-col min-h-screen"
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div className="flex flex-col min-h-screen">
+      <main className="page-content flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 }
-

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import MotionWrapper from "@/components/MotionWrapper";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ece-eg.com"),
@@ -37,10 +37,8 @@ export default function RootLayout({
       </head>
       <body className="page-shell">
         <Navbar />
-        <MotionWrapper>
-          <main className="page-content">{children}</main>
-          <Footer />
-        </MotionWrapper>
+        <ScrollToTop />
+        <MotionWrapper>{children}</MotionWrapper>
       </body>
     </html>
   );

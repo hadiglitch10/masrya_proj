@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageTransition from "@/components/PageTransition";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import ProjectGrid from "@/components/ProjectGrid";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <>
+    <PageTransition>
       <Section patterned className="pt-24 sm:pt-28 pb-10 sm:pb-14">
         <Reveal>
           <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4">
@@ -30,6 +31,6 @@ export default function ProjectsPage() {
           <ProjectGrid />
         </Reveal>
       </Section>
-    </>
+    </PageTransition>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageTransition from "@/components/PageTransition";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <>
+    <PageTransition>
       <Section patterned className="pt-24 sm:pt-28 pb-10 sm:pb-14">
         <SectionHeader
           eyebrow="Our Services"
@@ -69,6 +70,6 @@ export default function ServicesPage() {
           })}
         </div>
       </Section>
-    </>
+    </PageTransition>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { PROJECT_SECTORS } from "@/lib/projects";
 
 const SECTOR_STYLES: Record<
@@ -92,44 +91,34 @@ export default function ProjectGrid() {
         {sectorName}
       </p>
 
-      <motion.div
-        layout
-        className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-      >
-        <AnimatePresence mode="popLayout">
-          {projects.map((project, index) => {
-            const sector = PROJECT_SECTORS.find(
-              (s) => s.id === project.sectorId
-            );
-            const style =
-              SECTOR_STYLES[project.sectorId] ?? {
-                badge: "bg-white/10 text-white/80",
-                border: "border-l-white/30"
-              };
+      <div className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {projects.map((project) => {
+          const sector = PROJECT_SECTORS.find(
+            (s) => s.id === project.sectorId
+          );
+          const style =
+            SECTOR_STYLES[project.sectorId] ?? {
+              badge: "bg-white/10 text-white/80",
+              border: "border-l-white/30"
+            };
 
-            return (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25, delay: (index % 16) * 0.015 }}
-                className={`card-surface group flex flex-col gap-2 sm:gap-3 border-l-4 pl-3 pr-3 py-3 sm:pl-4 sm:pr-4 sm:py-4 hover:border-accent/40 transition ${style.border}`}
+          return (
+            <div
+              key={project.id}
+              className={`card-surface group flex flex-col gap-2 sm:gap-3 border-l-4 pl-3 pr-3 py-3 sm:pl-4 sm:pr-4 sm:py-4 hover:border-accent/40 transition ${style.border}`}
+            >
+              <span
+                className={`inline-flex w-fit rounded px-2 py-0.5 text-xs font-medium ${style.badge}`}
               >
-                <span
-                  className={`inline-flex w-fit rounded px-2 py-0.5 text-xs font-medium ${style.badge}`}
-                >
-                  {sector?.name ?? project.sectorId}
-                </span>
-                <h3 className="font-heading text-lg text-white leading-snug group-hover:text-accent transition">
-                  {project.name}
-                </h3>
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
-      </motion.div>
+                {sector?.name ?? project.sectorId}
+              </span>
+              <h3 className="font-heading text-lg text-white leading-snug group-hover:text-accent transition">
+                {project.name}
+              </h3>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

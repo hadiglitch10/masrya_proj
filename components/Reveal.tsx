@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
-import { ReactNode, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -11,29 +11,34 @@ type RevealProps = {
 
 export default function Reveal({ children, delay = 0, className }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -80px 0px" });
-  const controls = useAnimation();
+  const [fallbackShow, setFallbackShow] = useState(false);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.05,
+    margin: "0px 0px -50px 0px"
+  });
 
   useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
+    const t = setTimeout(() => setFallbackShow(true), 400);
+    return () => clearTimeout(t);
+  }, []);
+
+  const shouldShow = isInView || fallbackShow;
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, ease: "easeOut", delay }
-        }
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={
+        shouldShow
+          ? {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5, ease: "easeOut", delay }
+            }
+          : { opacity: 0, y: 20 }
+      }
     >
       {children}
     </motion.div>

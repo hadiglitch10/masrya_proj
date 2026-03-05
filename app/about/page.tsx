@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import PageTransition from "@/components/PageTransition";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
+    <PageTransition>
       <Section patterned className="pt-24 sm:pt-28 pb-10 sm:pb-14">
         <SectionHeader
           eyebrow="About ECE"
@@ -129,6 +130,6 @@ export default function AboutPage() {
           </ul>
         </Reveal>
       </Section>
-    </>
+    </PageTransition>
   );
 }
