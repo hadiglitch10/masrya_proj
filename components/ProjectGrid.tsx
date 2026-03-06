@@ -158,7 +158,7 @@ export default function ProjectGrid() {
       </p>
 
       <div className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {projects.map((project) => {
+        {projects.map((project, index) => {
           const sector = PROJECT_SECTORS.find(
             (s) => s.id === project.sectorId
           );
@@ -173,7 +173,7 @@ export default function ProjectGrid() {
 
           return (
             <div
-              key={project.id}
+              key={`${project.sectorId}-${project.id}-${index}`}
               className={`card-surface group flex flex-col gap-2 sm:gap-3 border-l-4 pl-3 pr-3 py-3 sm:pl-4 sm:pr-4 sm:py-4 hover:border-accent/40 transition ${style.border}`}
             >
               <div className="relative mb-2 sm:mb-3 h-36 w-full overflow-hidden rounded-xl bg-primary-muted/70">
