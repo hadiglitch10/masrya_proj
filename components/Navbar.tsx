@@ -34,9 +34,8 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <div
-        className={`mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:py-3 sm:px-6 lg:px-10 transition-all duration-300 ${
-          scrolled ? "nav-blur bg-primary-muted/95 shadow-lg shadow-black/40" : "bg-transparent"
-        }`}
+        className={`mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:py-3 sm:px-6 lg:px-10 transition-all duration-300 ${scrolled ? "nav-blur bg-primary-muted/95 shadow-lg shadow-black/40" : "bg-transparent"
+          }`}
       >
         <Link href="/" className="flex items-center gap-3">
           <div className="flex items-center justify-center rounded-full bg-white px-4 py-1.5 sm:px-5 sm:py-2 flex-shrink-0 shadow-md shadow-black/40">
@@ -69,9 +68,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`link-underline hover:text-white ${
-                  isActive ? "text-accent [&::after]:w-full" : ""
-                }`}
+                className={`link-underline hover:text-white ${isActive ? "text-accent [&::after]:w-full" : ""
+                  }`}
               >
                 {link.label}
               </Link>
@@ -79,11 +77,10 @@ export default function Navbar() {
           })}
           <Link
             href="/contact"
-            className={`btn-primary text-xs ${
-              pathname === "/contact"
+            className={`btn-primary text-xs ${pathname === "/contact"
                 ? "ring-2 ring-white/50 ring-offset-2 ring-offset-primary"
                 : ""
-            }`}
+              }`}
           >
             Contact Us
           </Link>
@@ -119,9 +116,8 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`py-3 text-sm min-h-[44px] flex items-center ${
-                      isActive ? "text-accent" : "text-white/85 hover:text-white"
-                    }`}
+                    className={`py-3 text-sm min-h-[44px] flex items-center ${isActive ? "text-accent" : "text-white/85 hover:text-white"
+                      }`}
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -130,11 +126,10 @@ export default function Navbar() {
               })}
               <Link
                 href="/contact"
-                className={`mt-2 w-full justify-center min-h-[44px] py-3 flex items-center rounded-full font-semibold text-sm ${
-                  pathname === "/contact"
+                className={`mt-2 w-full justify-center min-h-[44px] py-3 flex items-center rounded-full font-semibold text-sm ${pathname === "/contact"
                     ? "ring-2 ring-white/50 bg-accent/90 text-primary"
                     : "btn-primary"
-                }`}
+                  }`}
                 onClick={() => setOpen(false)}
               >
                 Contact Us
