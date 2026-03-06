@@ -39,13 +39,13 @@ export default function Navbar() {
         }`}
       >
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-10 w-10 sm:h-11 sm:w-11 flex-shrink-0">
+          <div className="flex items-center justify-center rounded-full bg-white px-4 py-1.5 sm:px-5 sm:py-2 flex-shrink-0 shadow-md shadow-black/40">
             <Image
-              src="/img/logo.png"
-              alt="ECE Logo"
-              fill
-              className="object-contain"
-              sizes="44px"
+              src="/img/logo-withoutbackground.png"
+              alt="ECE mark"
+              width={120}
+              height={36}
+              className="h-7 sm:h-8 w-auto"
               priority
             />
           </div>

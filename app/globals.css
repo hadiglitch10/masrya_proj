@@ -4,7 +4,7 @@
 
 html,
 body {
-  background-color: #0D1B2A;
+  background-color: #111827;
 }
 
 :root {
@@ -13,10 +13,18 @@ body {
 
 body {
   @apply bg-primary text-white font-body antialiased;
+  font-size: 15px;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 16px;
+  }
 }
 
 .page-shell {
-  @apply min-h-screen flex flex-col bg-primary;
+  @apply min-h-screen flex flex-col;
+  background: radial-gradient(circle at top, rgba(220, 38, 38, 0.16), #111827 40%, #020617 100%);
 }
 
 .page-content {
@@ -40,8 +48,10 @@ body {
   content: "";
   position: absolute;
   inset: -40%;
-  background: radial-gradient(circle at top left, rgba(200, 169, 81, 0.12), transparent 55%),
-    linear-gradient(135deg, rgba(13, 27, 42, 0.1), rgba(13, 27, 42, 0.9));
+  background:
+    radial-gradient(circle at top left, rgba(200, 169, 81, 0.16), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(220, 38, 38, 0.16), transparent 55%),
+    linear-gradient(135deg, rgba(13, 27, 42, 0.08), rgba(13, 27, 42, 0.9));
   opacity: 0.85;
   mix-blend-mode: soft-light;
   pointer-events: none;
@@ -60,7 +70,7 @@ body {
 }
 
 .card-surface {
-  @apply bg-primary-soft border border-white/5 rounded-2xl shadow-card;
+  @apply bg-white/5 border border-white/10 rounded-2xl shadow-card;
 }
 
 .link-underline {
@@ -83,11 +93,13 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-primary shadow-lg shadow-accent/30 transition-transform transition-shadow duration-200;
+  @apply inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-primary shadow-lg shadow-accent/30 transition-transform transition-shadow duration-200;
+  background-image: linear-gradient(135deg, #C8A951, #DC2626);
 }
 
 .btn-primary:hover {
   @apply -translate-y-0.5 shadow-xl;
+  filter: brightness(1.05);
 }
 
 .btn-outline {

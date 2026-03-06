@@ -1,7 +1,73 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { PROJECT_SECTORS } from "@/lib/projects";
+
+const LOGO_ONLY_IDS = new Set<string>([
+  // Health Ministry (from Manshiet El Bakry onwards)
+  "manshiet-bakry",
+  "transport-hospital",
+  "hassabo",
+  "galaa",
+  "masr-dawly",
+  "60bed",
+  "ahly-bank",
+  "zohour",
+  "cancer-institute",
+
+  // Interior Ministry
+  "mubarak-academy",
+  "police-sports",
+  "cavalry",
+  "police-comms",
+  "officers-institute",
+  "wadi-natrun",
+  "assiut-prison",
+  "alex-prison",
+
+  // Defense Ministry
+  "air-defense",
+  "engineering-auth",
+  "military-engineers",
+  "armored",
+  "electronic-warfare",
+  "air-forces",
+
+  // Government Entities
+  "new-cairo-courts",
+  "ain-shams-eng",
+  "ain-shams-arts",
+  "ain-shams-agri",
+  "antiquities",
+  "auditing",
+  "amiri-press",
+  "abu-qir-fire",
+
+  // Arab Contractors
+  "el-saff-water",
+  "atfih-water",
+  "hurghada-palace",
+  "gamasa-zone",
+  "sadat-academy",
+
+  // Private & Tourism
+  "atsuka",
+  "new-zealand-dairy",
+  "astra-travel",
+  "saudi-service",
+  "btech-sharm",
+  "badawia",
+  "sharm-life",
+  "el-basha",
+
+  // Sales Tax Authority
+  "mansoura-tax",
+  "mersa-matrouh-tax",
+  "nag-hammadi-tax",
+  "shubra-stamp",
+  "training-centers"
+]);
 
 const SECTOR_STYLES: Record<
   string,
@@ -102,11 +168,23 @@ export default function ProjectGrid() {
               border: "border-l-white/30"
             };
 
+          const useLogoOnly = LOGO_ONLY_IDS.has(project.id);
+          const imageSrc = useLogoOnly ? "/img/logoo.png" : `/img/${project.id}.jpg`;
+
           return (
             <div
               key={project.id}
               className={`card-surface group flex flex-col gap-2 sm:gap-3 border-l-4 pl-3 pr-3 py-3 sm:pl-4 sm:pr-4 sm:py-4 hover:border-accent/40 transition ${style.border}`}
             >
+              <div className="relative mb-2 sm:mb-3 h-36 w-full overflow-hidden rounded-xl bg-primary-muted/70">
+                <Image
+                  src={imageSrc}
+                  alt={project.name}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+                />
+              </div>
               <span
                 className={`inline-flex w-fit rounded px-2 py-0.5 text-xs font-medium ${style.badge}`}
               >

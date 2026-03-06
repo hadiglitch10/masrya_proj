@@ -19,13 +19,13 @@ export const PROJECT_SECTORS: ProjectSector[] = [
       { id: "nadi-sheraton", name: "El Nadi Club Sheraton", sectorId: "youth-sports" },
       { id: "nadi-6oct", name: "El Nadi Club 6th October", sectorId: "youth-sports" },
       { id: "fayoum-pool", name: "Fayoum Swimming Pool (Damo)", sectorId: "youth-sports" },
-      { id: "fayoum-hall", name: "Fayoum Indoor Hall (Damo)", sectorId: "youth-sports" },
+      { id: "ag-minister", name: "Fayoum Indoor Hall (Damo)", sectorId: "youth-sports" },
       { id: "6oct-hall", name: "6th October Indoor Hall", sectorId: "youth-sports" },
       { id: "zainhom", name: "Zainhom Youth Center", sectorId: "youth-sports" },
       { id: "abu-qir-youth", name: "Abu Qir Youth Center", sectorId: "youth-sports" },
-      { id: "meet-oqba", name: "Meet Oqba Youth Center", sectorId: "youth-sports" },
-      { id: "shubeen-hall", name: "Shubeen El Kom Indoor Hall & Pool", sectorId: "youth-sports" },
-      { id: "new-valley-hall", name: "New Valley Indoor Hall", sectorId: "youth-sports" }
+      { id: "ag-minister", name: "Meet Oqba Youth Center", sectorId: "youth-sports" },
+      { id: "ag-minister", name: "Shubeen El Kom Indoor Hall & Pool", sectorId: "youth-sports" },
+      { id: "ag-minister", name: "New Valley Indoor Hall", sectorId: "youth-sports" }
     ]
   },
   {
@@ -34,14 +34,14 @@ export const PROJECT_SECTORS: ProjectSector[] = [
     projects: [
       { id: "ag-minister", name: "Minister's Office", sectorId: "agriculture" },
       { id: "ag-financial", name: "Financial Affairs Dept", sectorId: "agriculture" },
-      { id: "ag-seeds", name: "Seeds & Crops Authority", sectorId: "agriculture" },
-      { id: "ag-companies", name: "Companies Dept", sectorId: "agriculture" },
-      { id: "ag-locust", name: "Locust Control Dept", sectorId: "agriculture" },
-      { id: "ag-guidance", name: "Agricultural Guidance Sector", sectorId: "agriculture" },
+      { id: "agri", name: "Seeds & Crops Authority", sectorId: "agriculture" },
+      { id: "agri", name: "Companies Dept", sectorId: "agriculture" },
+      { id: "agri", name: "Locust Control Dept", sectorId: "agriculture" },
+      { id: "agri", name: "Agricultural Guidance Sector", sectorId: "agriculture" },
       { id: "ag-engineering", name: "Engineering Dept", sectorId: "agriculture" },
       { id: "ag-intl", name: "International Agriculture Center", sectorId: "agriculture" },
-      { id: "ag-animal", name: "Animal Health Dept", sectorId: "agriculture" },
-      { id: "ag-zoo", name: "Zoo Gardens Authority", sectorId: "agriculture" }
+      { id: "agri", name: "Animal Health Dept", sectorId: "agriculture" },
+      { id: "agri", name: "Zoo Gardens Authority", sectorId: "agriculture" }
     ]
   },
   {

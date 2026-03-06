@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     description: "Engineering Trust Since Day One. Serving government and private sectors nationwide.",
     type: "website",
     url: "https://ece-eg.com"
+  },
+  icons: {
+    icon: "/img/logoo.png",
+    shortcut: "/img/logoo.png",
+    apple: "/img/logoo.png"
   }
 };
 

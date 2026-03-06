@@ -56,13 +56,13 @@ export default function HomePage() {
         <div className="page-section relative pt-24 sm:pt-28 md:pt-32">
           <div className="section-inner">
             <Reveal className="flex flex-col items-center text-center">
-              <div className="relative h-24 w-24 sm:h-28 sm:w-28 mb-6">
+              <div className="mb-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-4 shadow-xl shadow-black/50">
                 <Image
-                  src="/img/logo.png"
-                  alt="ECE Logo"
-                  fill
-                  className="object-contain"
-                  sizes="112px"
+                  src="/img/logo-withoutbackground.png"
+                  alt="ECE mark"
+                  width={320}
+                  height={110}
+                  className="h-20 sm:h-24 w-auto"
                   priority
                 />
               </div>
