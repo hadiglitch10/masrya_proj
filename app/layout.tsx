@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     url: "https://ece-eg.com"
   },
   icons: {
-    icon: "/img/logoo.png",
-    shortcut: "/img/logoo.png",
-    apple: "/img/logoo.png"
+    icon: "/img/logof-nobg.png",
+    shortcut: "/img/logof-nobg.png",
+    apple: "/img/logof-nobg.png"
   }
 };
 

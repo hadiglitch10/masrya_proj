@@ -58,7 +58,7 @@ export default function HomePage() {
             <Reveal className="flex flex-col items-center text-center">
               <div className="mb-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-4 shadow-xl shadow-black/50">
                 <Image
-                  src="/img/logo-withoutbackground.png"
+                  src="/img/logof-nobg.png"
                   alt="ECE mark"
                   width={320}
                   height={110}

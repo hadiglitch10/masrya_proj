@@ -129,11 +129,10 @@ export default function ProjectGrid() {
       <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide flex-nowrap md:flex-wrap md:overflow-visible">
         <button
           onClick={() => setActiveSector("all")}
-          className={`rounded-full border px-4 py-2 text-sm font-medium transition whitespace-nowrap flex-shrink-0 ${
-            activeSector === "all"
+          className={`rounded-full border px-4 py-2 text-sm font-medium transition whitespace-nowrap flex-shrink-0 ${activeSector === "all"
               ? "border-accent bg-accent/20 text-accent"
               : "border-white/20 bg-white/5 text-white/80 hover:border-white/40 hover:text-white"
-          }`}
+            }`}
         >
           All
         </button>
@@ -141,11 +140,10 @@ export default function ProjectGrid() {
           <button
             key={sector.id}
             onClick={() => setActiveSector(sector.id)}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition whitespace-nowrap flex-shrink-0 ${
-              activeSector === sector.id
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition whitespace-nowrap flex-shrink-0 ${activeSector === sector.id
                 ? "border-accent bg-accent/20 text-accent"
                 : "border-white/20 bg-white/5 text-white/80 hover:border-white/40 hover:text-white"
-            }`}
+              }`}
           >
             {sector.name}
           </button>
@@ -169,7 +167,7 @@ export default function ProjectGrid() {
             };
 
           const useLogoOnly = LOGO_ONLY_IDS.has(project.id);
-          const imageSrc = useLogoOnly ? "/img/logoo.png" : `/img/${project.id}.jpg`;
+          const imageSrc = useLogoOnly ? "/img/logof.jpeg" : `/img/${project.id}.jpg`;
 
           return (
             <div

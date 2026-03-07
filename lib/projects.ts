@@ -15,6 +15,7 @@ export const PROJECT_SECTORS: ProjectSector[] = [
     id: "youth-sports",
     name: "Youth & Sports Ministry",
     projects: [
+      { id: "newCapital", name: "New Capital", sectorId: "youth-sports" },
       { id: "shubra-sports", name: "Shubra El Kheima Sports Development Center", sectorId: "youth-sports" },
       { id: "nadi-sheraton", name: "El Nadi Club Sheraton", sectorId: "youth-sports" },
       { id: "nadi-6oct", name: "El Nadi Club 6th October", sectorId: "youth-sports" },

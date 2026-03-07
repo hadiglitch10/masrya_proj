@@ -40,7 +40,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <div className="flex items-center justify-center rounded-full bg-white px-4 py-1.5 sm:px-5 sm:py-2 flex-shrink-0 shadow-md shadow-black/40">
             <Image
-              src="/img/logo-withoutbackground.png"
+              src="/img/logof-nobg.png"
               alt="ECE mark"
               width={120}
               height={36}
@@ -78,8 +78,8 @@ export default function Navbar() {
           <Link
             href="/contact"
             className={`btn-primary text-xs ${pathname === "/contact"
-                ? "ring-2 ring-white/50 ring-offset-2 ring-offset-primary"
-                : ""
+              ? "ring-2 ring-white/50 ring-offset-2 ring-offset-primary"
+              : ""
               }`}
           >
             Contact Us
@@ -127,8 +127,8 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 className={`mt-2 w-full justify-center min-h-[44px] py-3 flex items-center rounded-full font-semibold text-sm ${pathname === "/contact"
-                    ? "ring-2 ring-white/50 bg-accent/90 text-primary"
-                    : "btn-primary"
+                  ? "ring-2 ring-white/50 bg-accent/90 text-primary"
+                  : "btn-primary"
                   }`}
                 onClick={() => setOpen(false)}
               >

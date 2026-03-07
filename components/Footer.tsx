@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="relative h-11 w-11 flex-shrink-0">
                 <Image
-                  src="/img/logoo.png"
+                  src="/img/logof-nobg.png"
                   alt="ECE Logo"
                   fill
                   className="object-contain"
